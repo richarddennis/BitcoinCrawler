@@ -159,13 +159,13 @@ public class NetworkCrawler implements Runnable {
                 try {
                     String filename = "PeerAddress.txt";
                     FileWriter fw = new FileWriter(filename, true); //the true will append the new data
-                    System.out.println("Successfully connected to " + nextPeer);
-
-                    fw.write(nextPeer + "\n");//appends the string to the file
+                    fw.write(nextPeer+"\n");//appends the string to the file
                     fw.close();
                 } catch (IOException ioe) {
                     System.err.println("IOException: " + ioe.getMessage());
                 }
+                
+                System.out.println("Successfully connected to " + nextPeer);
 
                 HashSet<PeerAddress> peercache = bc.enumerate(10000);
                 if (peercache != null) {
