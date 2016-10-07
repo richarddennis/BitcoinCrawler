@@ -5,6 +5,8 @@
  */
 package bitcoinclient;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.InetAddress;
 import java.util.Date;
 
@@ -23,6 +25,15 @@ public class PeerAddress {
 
     @Override
     public String toString() {
+        try {
+            String filename = "AllPeers.txt";
+            FileWriter fw = new FileWriter(filename, true); //the true will append the new data
+            fw.write("PeerAddress [ip=" + ip + ", port=" + port + ", time=" + time + "\n");//appends the string to the file
+            fw.close();
+        } catch (IOException ioe) {
+            System.err.println("IOException: " + ioe.getMessage());
+        }
+//        System.out.println("PeerAddress [ip=" + ip + ", port=" + port + ", time=" + time);
         return "PeerAddress [ip=" + ip + ", port=" + port + ", time=" + time
                 + "]";
     }

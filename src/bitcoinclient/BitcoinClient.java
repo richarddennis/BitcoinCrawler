@@ -45,8 +45,6 @@ public class BitcoinClient {
 			md.reset();
 			return md.digest(hash1);
 		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 			throw new RuntimeException();
 		}
 	}
@@ -171,8 +169,9 @@ public class BitcoinClient {
 					out.write(new BitcoinPacket("pong", inPkt.payload).pack());
 					
 				} else if(inPkt.command.equals("pong")) {
-					long pingTime = System.currentTimeMillis() - lastPingTime;
+					long pingTime;
 					//System.out.println("PING TIME (ms): "+pingTime);   // PRINT OUT PING TIME FOR THIS NODE
+                                    pingTime = System.currentTimeMillis() - lastPingTime;
 					
 				} else if(inPkt.command.equals("addr")) {
 					ByteBuffer pl = ByteBuffer.wrap(inPkt.payload);

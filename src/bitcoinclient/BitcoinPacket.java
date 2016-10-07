@@ -96,10 +96,8 @@ public class BitcoinPacket {
         buf.putInt(0xFFFF0000);
         byte ipbuf[] = new byte[4];
         try {
-            ip.getByAddress(ipbuf);
+            InetAddress.getByAddress(ipbuf);
         } catch (UnknownHostException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
             throw new RuntimeException();
         }
         buf.put(ipbuf);

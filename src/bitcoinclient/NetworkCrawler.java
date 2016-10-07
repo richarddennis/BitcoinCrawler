@@ -8,15 +8,10 @@ package bitcoinclient;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.Iterator;
-import java.util.PriorityQueue;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
@@ -26,31 +21,24 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 
 import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.Statement;
 import java.io.FileWriter;
 
-public class NetworkCrawler implements Runnable {
+public final class NetworkCrawler implements Runnable {
 
     public static void main(String[] args) throws UnknownHostException, InterruptedException {
-        new NetworkCrawler();
+        NetworkCrawler networkCrawler = new NetworkCrawler();
     }
 
     // Queue off to crawl peers
-    PriorityBlockingQueue<PeerAddress> crawlQueue = new PriorityBlockingQueue<>(1000, new Comparator<PeerAddress>() {
-        @Override
-        public int compare(PeerAddress o1,
-                PeerAddress o2) {
-            // TODO Auto-generated method stub
-            return o1.time.before(o2.time) ? +1 : -1;
-        }
-    });
+    PriorityBlockingQueue<PeerAddress> crawlQueue = new PriorityBlockingQueue<>(1000, (PeerAddress o1, PeerAddress o2) -> o1.time.before(o2.time) ? +1 : -1 // TODO Auto-generated method stub
+    );
     // Set of known peers (ip,port) peers
     Set<PeerAddress> knownPeers = Collections.newSetFromMap(new ConcurrentHashMap<PeerAddress, Boolean>());
 
     public void newPeersDiscovered(HashSet<PeerAddress> set) {
-        for (PeerAddress peerAddress : set) {
+        set.stream().forEach((peerAddress) -> {
             newPeerDiscovered(peerAddress);
-        }
+        });
     }
 
     public void newPeerDiscovered(PeerAddress peerAddress) {
@@ -120,8 +108,6 @@ public class NetworkCrawler implements Runnable {
             try {
                 Thread.sleep(200);
             } catch (InterruptedException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
             }
         }
         //exec.awaitTermination(100, TimeUnit.DAYS);
@@ -139,7 +125,6 @@ public class NetworkCrawler implements Runnable {
             try {
                 nextPeer = crawlQueue.poll(2, TimeUnit.MINUTES);
             } catch (InterruptedException e1) {
-                e1.printStackTrace();
                 runningThreads.decrementAndGet();
                 return;
             }
@@ -158,9 +143,10 @@ public class NetworkCrawler implements Runnable {
 
                 try {
                     String filename = "PeerAddress.txt";
-                    FileWriter fw = new FileWriter(filename, true); //the true will append the new data
-                    fw.write(nextPeer+"\n");//appends the string to the file
-                    fw.close();
+                    try (FileWriter fw = new FileWriter(filename, true) //the true will append the new data
+                    ) {
+                        fw.write(nextPeer+"\n");//appends the string to the file
+                    } //appends the string to the file
                 } catch (IOException ioe) {
                     System.err.println("IOException: " + ioe.getMessage());
                 }

@@ -17,14 +17,10 @@ public class ScheduleCrawl {
             long nextCrawl = System.currentTimeMillis() + 3600 * 1000 * 3;
 
             try {
-                new NetworkCrawler();
-            } catch (InterruptedException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                NetworkCrawler networkCrawler = new NetworkCrawler();
+            } catch (InterruptedException | IOException e) {
             }
+            // TODO Auto-generated catch block
 
             System.out.println("Waiting for next crawl time");
             while (System.currentTimeMillis() < nextCrawl) {
