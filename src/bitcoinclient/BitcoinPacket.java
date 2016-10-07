@@ -61,7 +61,8 @@ public class BitcoinPacket {
     public static PeerAddress from_netaddr(ByteBuffer buf) {
         buf.order(ByteOrder.LITTLE_ENDIAN);
         Date time = new Date((long) buf.getInt() * 1000L);
-        long services = buf.getLong();
+        long services;
+        services = buf.getLong();
         byte[] ipdata = new byte[16];
         buf.get(ipdata);
         buf.order(ByteOrder.BIG_ENDIAN);
@@ -70,8 +71,6 @@ public class BitcoinPacket {
         try {
             ip = InetAddress.getByAddress(ipdata);
         } catch (UnknownHostException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
         }
         buf.order(ByteOrder.LITTLE_ENDIAN);
 

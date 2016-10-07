@@ -27,9 +27,10 @@ public class PeerAddress {
     public String toString() {
         try {
             String filename = "AllPeers.txt";
-            FileWriter fw = new FileWriter(filename, true); //the true will append the new data
-            fw.write("PeerAddress [ip=" + ip + ", port=" + port + ", time=" + time + "\n");//appends the string to the file
-            fw.close();
+            try (FileWriter fw = new FileWriter(filename, true) //the true will append the new data
+                    ) {
+                fw.write("PeerAddress [ip=" + ip + ", port=" + port + ", time=" + time + "\n");//appends the string to the file
+            } //appends the string to the file
         } catch (IOException ioe) {
             System.err.println("IOException: " + ioe.getMessage());
         }

@@ -11,13 +11,15 @@ public class ScheduleCrawl {
 
     public static void main(String[] args) throws InterruptedException {
         // TODO Auto-generated method stub
-        long start = System.currentTimeMillis();
+        long start;
+        start = System.currentTimeMillis();
 
         while (true) {
             long nextCrawl = System.currentTimeMillis() + 3600 * 1000 * 3;
 
             try {
-                NetworkCrawler networkCrawler = new NetworkCrawler();
+                NetworkCrawler networkCrawler;
+                networkCrawler = new NetworkCrawler();
             } catch (InterruptedException | IOException e) {
             }
             // TODO Auto-generated catch block

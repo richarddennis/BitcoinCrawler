@@ -148,63 +148,45 @@ public class BitcoinClient {
 				
 				BitcoinPacket inPkt = decodePacket(in);
 
-		//		System.out.println("Received: "+inPkt.command);
-				
-				// handle incoming packet
-				if(inPkt.command.equals("version")) { 
-					// acknowledge a version packet, at which point the connection is now up
-					out.write(new BitcoinPacket("verack", new byte[] {}).pack());
-					
-					// send a ping
-					byte []nonce = new byte[8];
-					new Random().nextBytes(nonce);
-					out.write(new BitcoinPacket("ping", nonce).pack());
-					lastPingTime = System.currentTimeMillis();
-					out.flush();
-					
-					// request list of peers as we're now connected
-					out.write(new BitcoinPacket("getaddr", new byte[] {}).pack());
-					
-				} else if(inPkt.command.equals("ping")) {
-					out.write(new BitcoinPacket("pong", inPkt.payload).pack());
-					
-				} else if(inPkt.command.equals("pong")) {
-					long pingTime;
-					//System.out.println("PING TIME (ms): "+pingTime);   // PRINT OUT PING TIME FOR THIS NODE
+                            //		System.out.println("Received: "+inPkt.command);
+                            // handle incoming packet
+                            switch (inPkt.command) {
+                                case "version":
+                                    // acknowledge a version packet, at which point the connection is now up
+                                    out.write(new BitcoinPacket("verack", new byte[] {}).pack());
+                                    // send a ping
+                                    byte []nonce = new byte[8];
+                                    new Random().nextBytes(nonce);
+                                    out.write(new BitcoinPacket("ping", nonce).pack());
+                                    lastPingTime = System.currentTimeMillis();
+                                    out.flush();
+                                    // request list of peers as we're now connected
+                                    out.write(new BitcoinPacket("getaddr", new byte[] {}).pack());
+                                    break;
+                                case "ping":
+                                    out.write(new BitcoinPacket("pong", inPkt.payload).pack());
+                                    break;
+                                case "pong":
+                                    long pingTime;
+                                    //System.out.println("PING TIME (ms): "+pingTime);   // PRINT OUT PING TIME FOR THIS NODE
                                     pingTime = System.currentTimeMillis() - lastPingTime;
-					
-				} else if(inPkt.command.equals("addr")) {
-					ByteBuffer pl = ByteBuffer.wrap(inPkt.payload);
-					int entries = (int) BitcoinPacket.from_varint(pl);
-					
-					// get list of peers
-					HashSet<PeerAddress> peerset = new HashSet<>();
-					for(int i=0; i<entries; i++) {
-						PeerAddress pa = BitcoinPacket.from_netaddr(pl);
-						peerset.add(pa);
-					}
-					
-					client.close(); //close connection once we've got list of addresses (use for crawler only)
-					return peerset;
-					
-				} /* else if(inPkt.command.equals("inv")) {
-					ByteBuffer pl = ByteBuffer.wrap(inPkt.payload);
-					
-					// print out inv entries:
-					long count = BitcoinPacket.from_varint(pl);
-					for (int i = 0; i < count; i++) {
-						int type = pl.getInt();
-						byte hash[] = new byte[32];
-						pl.get(hash);
-						System.out.println("[INV] Got Type "+type+" with hash "+hexStringReversed(hash));
-					}
-					
-					//Uncomment to request full transactions via a getdata
-					//out.write(new BitcoinPacket("getdata", inPkt.payload).pack());
-					
-				} */ /* else if(inPkt.command.equals("tx")) { // received a transaction object
-					System.out.println("TX: "+hexStringReversed(sha256twice(inPkt.payload)));
-				}*/
+                                    break;
+                                case "addr":
+                                    ByteBuffer pl = ByteBuffer.wrap(inPkt.payload);
+                                    int entries = (int) BitcoinPacket.from_varint(pl);
+                                    
+                                    // get list of peers
+                                    HashSet<PeerAddress> peerset = new HashSet<>();
+                                    for(int i=0; i<entries; i++) {
+                                        PeerAddress pa = BitcoinPacket.from_netaddr(pl);
+                                        peerset.add(pa);
+                                    }
+                                    
+                                    client.close(); //close connection once we've got list of addresses (use for crawler only)
+                                    return peerset;
+                                default:
+                                    break; 
+                            }
 			}
 		} catch(IOException e) {
 			System.out.println(e);

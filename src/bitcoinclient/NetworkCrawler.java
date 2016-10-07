@@ -26,7 +26,8 @@ import java.io.FileWriter;
 public final class NetworkCrawler implements Runnable {
 
     public static void main(String[] args) throws UnknownHostException, InterruptedException {
-        NetworkCrawler networkCrawler = new NetworkCrawler();
+        NetworkCrawler networkCrawler;
+        networkCrawler = new NetworkCrawler();
     }
 
     // Queue off to crawl peers
@@ -118,6 +119,7 @@ public final class NetworkCrawler implements Runnable {
 
     /* do the crawling thread
      */
+    @Override
     public void run() {
         runningThreads.incrementAndGet();
         while (!crawlQueue.isEmpty()) {
