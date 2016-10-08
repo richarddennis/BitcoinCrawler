@@ -206,11 +206,11 @@ public class BitcoinClient {
                         try (FileWriter fw = new FileWriter("pingTime.txt", true);
                                 BufferedWriter bw = new BufferedWriter(fw);
                                 PrintWriter out = new PrintWriter(bw)) {
-                            out.println("Client " + client + " "  + new Timestamp(date.getTime()));
+                            out.println("Client " + client + " " + new Timestamp(date.getTime()));
                             out.println("PING TIME (ms): " + pingTime);
+                            out.println(" ");
                         } catch (IOException e) {
                         }
-
                         break;
                     case "addr":
 //                        System.out.println("addr");
@@ -220,30 +220,30 @@ public class BitcoinClient {
                         //Need to know which packet sent this is from
                         int entries = (int) BitcoinPacket.from_varint(pl);
 //                        System.out.println(" entries " + entries);
-                        try (FileWriter fw = new FileWriter("connection.txt", true);
+                        try (FileWriter fw = new FileWriter("AddrRecievedData.txt", true);
                                 BufferedWriter bw = new BufferedWriter(fw);
                                 PrintWriter out = new PrintWriter(bw)) {
-                            out.println("addr packet recieved " + (new Timestamp(date.getTime())));
-                            out.println("Client " + client);
-
+                            out.println("addr packet recieved " + (new Timestamp(date.getTime())) + " from client " + client);
+//                            out.println("addr packet recieved " + (new Timestamp(date.getTime())));
+//                            out.println("addr client " + client);
                         } catch (IOException e) {
                         }
                         // get list of peers
                         HashSet<PeerAddress> peerset = new HashSet<>();
 //                        System.out.println("pl " + pl);
 
-                        try (FileWriter fw = new FileWriter("addr.txt", true);
+                        try (FileWriter fw = new FileWriter("PeerAddressRecievedFromAddr.txt", true);
                                 BufferedWriter bw = new BufferedWriter(fw);
                                 PrintWriter out = new PrintWriter(bw)) {
-                            out.println("addr packet recieved " + (new Timestamp(date.getTime())));
+                            out.println("addr packet recieved " + (new Timestamp(date.getTime())) + " from client " + client);
 
                             for (int i = 0; i < entries; i++) {
                                 PeerAddress pa = BitcoinPacket.from_netaddr(pl);
                                 out.println(pa);
-//                            System.out.println("pa " + pa);
-
                                 peerset.add(pa);
                             }
+                            out.println(" ");
+                            out.println(" ");
                             out.println(" ");
                         } catch (IOException e) {
                         }
