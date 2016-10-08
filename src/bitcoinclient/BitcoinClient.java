@@ -12,9 +12,12 @@ package bitcoinclient;
 import java.sql.Timestamp;
 import java.util.Date;
 import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.nio.ByteBuffer;
@@ -22,6 +25,8 @@ import java.nio.ByteOrder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Random;
@@ -86,8 +91,16 @@ public class BitcoinClient {
         client = new Socket();
         try {
             client.connect(new InetSocketAddress(peer.ip, peer.port), 10000);
-            System.out.println("In Connect");
-            System.out.println(new Timestamp(date.getTime()));
+//            System.out.println("In Connect");
+//            System.out.println(new Timestamp(date.getTime()));
+
+            try (FileWriter fw = new FileWriter("connection.txt", true);
+                    BufferedWriter bw = new BufferedWriter(fw);
+                    PrintWriter out = new PrintWriter(bw)) {
+                out.println("Connected to peer at address " + peer.ip + " on port " + peer.port + " at time " + (new Timestamp(date.getTime())));
+
+            } catch (IOException e) {
+            }
 
             in = client.getInputStream();
             out = client.getOutputStream();
@@ -100,6 +113,7 @@ public class BitcoinClient {
 
     public static BitcoinPacket decodePacket(InputStream in) throws IOException {
         // READ ENTIRE PACKET IN
+//        System.out.println("Packet recieved");
         byte[] hdr = new byte[24];
 
         IOUtils.readFully(in, hdr); // hdr bytes
@@ -145,6 +159,7 @@ public class BitcoinClient {
     public HashSet<PeerAddress> enumerate(long timeout) {
         long startConnection = System.currentTimeMillis();
 
+//        System.out.println("Connecting to a peer");
         try {
             // send version packet
             VersionPacket vpkt = new VersionPacket(client);
@@ -154,6 +169,7 @@ public class BitcoinClient {
                 if (System.currentTimeMillis() - startConnection > timeout) {
                     return null; // if we've been connected more than two minutes then disconnect - the node hasn't sent the peer address list
                 }
+//                System.out.println("Packet recieved");
                 BitcoinPacket inPkt = decodePacket(in);
 
                 //		System.out.println("Received: "+inPkt.command);
@@ -180,21 +196,36 @@ public class BitcoinClient {
                         pingTime = System.currentTimeMillis() - lastPingTime;
                         break;
                     case "addr":
-//                                    System.out.println("addr");
+//                        System.out.println("addr");
                         ByteBuffer pl = ByteBuffer.wrap(inPkt.payload);
+//                        System.out.println("pl " + pl);
                         int entries = (int) BitcoinPacket.from_varint(pl);
+                        try (FileWriter fw = new FileWriter("connection.txt", true);
+                                BufferedWriter bw = new BufferedWriter(fw);
+                                PrintWriter out = new PrintWriter(bw)) {
+                            out.println("addr packet recieved");
 
+                        } catch (IOException e) {
+                        }
                         // get list of peers
                         HashSet<PeerAddress> peerset = new HashSet<>();
-                        System.out.println("pl " + pl);
+//                        System.out.println("pl " + pl);
 
-                        for (int i = 0; i < entries; i++) {
-                            PeerAddress pa = BitcoinPacket.from_netaddr(pl);
+                        try (FileWriter fw = new FileWriter("addr.txt", true);
+                                BufferedWriter bw = new BufferedWriter(fw);
+                                PrintWriter out = new PrintWriter(bw)) {
+                            out.println("addr packet recieved");
+
+                            for (int i = 0; i < entries; i++) {
+                                PeerAddress pa = BitcoinPacket.from_netaddr(pl);
+                                out.println(pa);
 //                            System.out.println("pa " + pa);
 
-                            peerset.add(pa);
+                                peerset.add(pa);
+                            }
+                            out.println(" ");
+                        } catch (IOException e) {
                         }
-
                         client.close(); //close connection once we've got list of addresses (use for crawler only)
                         return peerset;
                     default:
