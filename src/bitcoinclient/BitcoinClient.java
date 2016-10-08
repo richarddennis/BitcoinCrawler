@@ -192,13 +192,23 @@ public class BitcoinClient {
                         break;
                     case "pong":
                         long pingTime;
-                        //System.out.println("PING TIME (ms): "+pingTime);   // PRINT OUT PING TIME FOR THIS NODE
                         pingTime = System.currentTimeMillis() - lastPingTime;
+//                        System.out.println("PING TIME (ms): " + pingTime);   // PRINT OUT PING TIME FOR THIS NODE
+
+                        try (FileWriter fw = new FileWriter("pingTime.txt", true);
+                                BufferedWriter bw = new BufferedWriter(fw);
+                                PrintWriter out = new PrintWriter(bw)) {
+                            out.println("PING TIME (ms): " + pingTime);
+                        } catch (IOException e) {
+                        }
+
                         break;
                     case "addr":
 //                        System.out.println("addr");
                         ByteBuffer pl = ByteBuffer.wrap(inPkt.payload);
 //                        System.out.println("pl " + pl);
+
+                        //Need to know which packet sent this is from
                         int entries = (int) BitcoinPacket.from_varint(pl);
                         try (FileWriter fw = new FileWriter("connection.txt", true);
                                 BufferedWriter bw = new BufferedWriter(fw);
