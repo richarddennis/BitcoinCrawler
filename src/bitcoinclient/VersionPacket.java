@@ -1,10 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package bitcoinclient;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -26,8 +25,20 @@ public class VersionPacket extends BitcoinPacket {
         buf.putInt(70002);
         buf.putLong(SERVICES); // services
         buf.putLong(System.currentTimeMillis() / 1000);
+
         buf.put(to_netaddr(remote.getInetAddress(), remote.getPort()));
+        
+        //Log all the nodes we attempt to send data to
+        try (FileWriter fw = new FileWriter("sendInt.txt", true);
+                BufferedWriter bw = new BufferedWriter(fw);
+                PrintWriter out = new PrintWriter(bw)) {
+            out.println((remote.getInetAddress()));
+            out.println(remote.getPort());
+        } catch (IOException e) {
+        }
+
         buf.put(to_netaddr(remote.getLocalAddress(), remote.getLocalPort()));
+
         buf.putLong(new Random().nextLong());
         buf.put(to_varstr("peerenum"));
         buf.putInt(0);
@@ -36,7 +47,6 @@ public class VersionPacket extends BitcoinPacket {
         payload = new byte[buf.limit()];
         buf.get(payload);
 
-        // TODO Auto-generated constructor stub
     }
 
 }

@@ -179,3 +179,51 @@ PING TIME (ms): 818
 Client Socket[addr=/86.131.64.70,port=8333,localport=65338] 2016-10-09 00:00:24.71
 PING TIME (ms): 147
  
+Client Socket[addr=/207.226.141.129,port=8333,localport=49229] 2016-10-09 00:13:55.295
+PING TIME (ms): 530
+ 
+Client Socket[addr=/93.190.137.186,port=8333,localport=49228] 2016-10-09 00:13:55.295
+PING TIME (ms): 103
+ 
+Client Socket[addr=/91.84.131.109,port=8333,localport=49239] 2016-10-09 00:14:05.31
+PING TIME (ms): 302
+ 
+Client Socket[addr=/73.37.0.64,port=8333,localport=49237] 2016-10-09 00:14:05.31
+PING TIME (ms): 438
+ 
+Client Socket[addr=/67.185.85.125,port=8333,localport=49244] 2016-10-09 00:14:05.542
+PING TIME (ms): 587
+ 
+Client Socket[addr=/46.4.93.54,port=8333,localport=49254] 2016-10-09 00:14:13.669
+PING TIME (ms): 99
+ 
+Client Socket[addr=/93.190.137.186,port=8333,localport=49259] 2016-10-09 00:14:13.669
+PING TIME (ms): 180
+ 
+Client Socket[addr=/207.226.141.129,port=8333,localport=49261] 2016-10-09 00:14:13.669
+PING TIME (ms): 851
+ 
+Client Socket[addr=/91.205.173.159,port=8333,localport=49279] 2016-10-09 00:14:20.697
+PING TIME (ms): 146
+ 
+Client Socket[addr=/151.80.40.188,port=8333,localport=49280] 2016-10-09 00:14:23.693
+PING TIME (ms): 69
+ 
+Client Socket[addr=/91.134.120.210,port=11050,localport=49283] 2016-10-09 00:14:23.693
+PING TIME (ms): 129
+ 
+Client Socket[addr=/47.201.51.236,port=8333,localport=49288] 2016-10-09 00:14:23.968
+PING TIME (ms): 457
+ 
+Client Socket[addr=/149.202.216.15,port=8333,localport=49290] 2016-10-09 00:14:24.4
+PING TIME (ms): 211
+ 
+Client Socket[addr=/80.218.130.117,port=8333,localport=49293] 2016-10-09 00:14:24.969
+PING TIME (ms): 132
+ 
+Client Socket[addr=/91.115.66.87,port=8333,localport=49291] 2016-10-09 00:14:24.938
+PING TIME (ms): 249
+ 
+Client Socket[addr=/52.26.127.162,port=8333,localport=49295] 2016-10-09 00:14:27.099
+PING TIME (ms): 327
+ 

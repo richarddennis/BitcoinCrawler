@@ -30,11 +30,14 @@ public final class NetworkCrawler implements Runnable {
     }
 
     // Queue off to crawl peers
-    PriorityBlockingQueue<PeerAddress> crawlQueue = new PriorityBlockingQueue<>(1000, (PeerAddress o1, PeerAddress o2) -> o1.time.before(o2.time)
+    PriorityBlockingQueue<PeerAddress> crawlQueue = 
+            new PriorityBlockingQueue<>(1000, (PeerAddress o1, PeerAddress o2) 
+                    -> o1.time.before(o2.time)
             ? +1 : -1
     );
     // Set of known peers (ip,port) peers
-    Set<PeerAddress> knownPeers = Collections.newSetFromMap(new ConcurrentHashMap<PeerAddress, Boolean>());
+    Set<PeerAddress> knownPeers = Collections.newSetFromMap(new 
+        ConcurrentHashMap<PeerAddress, Boolean>());
 
     public void newPeersDiscovered(HashSet<PeerAddress> set) {
         set.stream().forEach((peerAddress) -> {

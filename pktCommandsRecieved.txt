@@ -1700,3 +1700,323 @@ Client Socket[addr=/86.131.64.70,port=8333,localport=65338]
 pong
 Client Socket[addr=/46.229.165.134,port=8333,localport=65325]
 inv
+Client Socket[addr=/195.62.61.25,port=8333,localport=49221]
+version
+Client Socket[addr=/195.62.61.25,port=8333,localport=49221]
+verack
+Client Socket[addr=/195.62.61.25,port=8333,localport=49221]
+ping
+Client Socket[addr=/195.62.61.25,port=8333,localport=49221]
+addr
+Client Socket[addr=/209.58.130.210,port=8333,localport=49220]
+version
+Client Socket[addr=/209.58.130.210,port=8333,localport=49220]
+verack
+Client Socket[addr=/209.58.130.210,port=8333,localport=49220]
+ping
+Client Socket[addr=/209.58.130.210,port=8333,localport=49220]
+addr
+Client Socket[addr=/207.226.141.129,port=8333,localport=49229]
+version
+Client Socket[addr=/207.226.141.129,port=8333,localport=49229]
+verack
+Client Socket[addr=/207.226.141.129,port=8333,localport=49229]
+ping
+Client Socket[addr=/207.226.141.129,port=8333,localport=49229]
+getheaders
+Client Socket[addr=/207.226.141.129,port=8333,localport=49229]
+inv
+Client Socket[addr=/207.226.141.129,port=8333,localport=49229]
+pong
+Client Socket[addr=/93.190.137.186,port=8333,localport=49228]
+version
+Client Socket[addr=/93.190.137.186,port=8333,localport=49228]
+verack
+Client Socket[addr=/93.190.137.186,port=8333,localport=49228]
+ping
+Client Socket[addr=/93.190.137.186,port=8333,localport=49228]
+getheaders
+Client Socket[addr=/93.190.137.186,port=8333,localport=49228]
+pong
+Client Socket[addr=/93.190.137.186,port=8333,localport=49228]
+addr
+Client Socket[addr=/207.226.141.129,port=8333,localport=49229]
+inv
+Client Socket[addr=/207.226.141.129,port=8333,localport=49229]
+addr
+Client Socket[addr=/96.234.214.85,port=8333,localport=49233]
+version
+Client Socket[addr=/96.234.214.85,port=8333,localport=49233]
+verack
+Client Socket[addr=/96.234.214.85,port=8333,localport=49233]
+ping
+Client Socket[addr=/96.234.214.85,port=8333,localport=49233]
+addr
+Client Socket[addr=/81.83.96.5,port=8333,localport=49242]
+version
+Client Socket[addr=/81.83.96.5,port=8333,localport=49242]
+verack
+Client Socket[addr=/81.83.96.5,port=8333,localport=49242]
+ping
+Client Socket[addr=/81.83.96.5,port=8333,localport=49242]
+addr
+Client Socket[addr=/91.84.131.109,port=8333,localport=49239]
+version
+Client Socket[addr=/91.84.131.109,port=8333,localport=49239]
+verack
+Client Socket[addr=/75.129.166.155,port=8333,localport=49240]
+version
+Client Socket[addr=/75.129.166.155,port=8333,localport=49240]
+verack
+Client Socket[addr=/75.129.166.155,port=8333,localport=49240]
+ping
+Client Socket[addr=/73.37.0.64,port=8333,localport=49237]
+version
+Client Socket[addr=/75.129.166.155,port=8333,localport=49240]
+addr
+Client Socket[addr=/91.84.131.109,port=8333,localport=49239]
+pong
+Client Socket[addr=/190.47.203.130,port=8333,localport=49238]
+version
+Client Socket[addr=/73.37.0.64,port=8333,localport=49237]
+verack
+Client Socket[addr=/190.47.203.130,port=8333,localport=49238]
+verack
+Client Socket[addr=/190.47.203.130,port=8333,localport=49238]
+ping
+Client Socket[addr=/190.47.203.130,port=8333,localport=49238]
+addr
+Client Socket[addr=/67.185.85.125,port=8333,localport=49244]
+version
+Client Socket[addr=/73.37.0.64,port=8333,localport=49237]
+pong
+Client Socket[addr=/67.185.85.125,port=8333,localport=49244]
+verack
+Client Socket[addr=/67.185.85.125,port=8333,localport=49244]
+pong
+Client Socket[addr=/73.37.0.64,port=8333,localport=49237]
+inv
+Client Socket[addr=/211.149.234.109,port=8333,localport=49245]
+version
+Client Socket[addr=/211.149.234.109,port=8333,localport=49245]
+verack
+Client Socket[addr=/211.149.234.109,port=8333,localport=49245]
+ping
+Client Socket[addr=/211.149.234.109,port=8333,localport=49245]
+addr
+Client Socket[addr=/67.185.85.125,port=8333,localport=49244]
+addr
+Client Socket[addr=/73.37.0.64,port=8333,localport=49237]
+addr
+Client Socket[addr=/93.190.137.186,port=8333,localport=49259]
+version
+Client Socket[addr=/46.4.93.54,port=8333,localport=49254]
+version
+Client Socket[addr=/93.190.137.186,port=8333,localport=49259]
+verack
+Client Socket[addr=/93.190.137.186,port=8333,localport=49259]
+ping
+Client Socket[addr=/93.190.137.186,port=8333,localport=49259]
+getheaders
+Client Socket[addr=/46.4.93.54,port=8333,localport=49254]
+verack
+Client Socket[addr=/195.62.61.25,port=8333,localport=49264]
+version
+Client Socket[addr=/46.4.93.54,port=8333,localport=49254]
+ping
+Client Socket[addr=/195.62.61.25,port=8333,localport=49264]
+verack
+Client Socket[addr=/195.62.61.25,port=8333,localport=49264]
+ping
+Client Socket[addr=/46.4.93.54,port=8333,localport=49254]
+getheaders
+Client Socket[addr=/195.62.61.25,port=8333,localport=49264]
+addr
+Client Socket[addr=/46.4.93.54,port=8333,localport=49254]
+pong
+Client Socket[addr=/93.190.137.186,port=8333,localport=49259]
+pong
+Client Socket[addr=/209.58.130.210,port=8333,localport=49265]
+version
+Client Socket[addr=/209.58.130.210,port=8333,localport=49265]
+verack
+Client Socket[addr=/209.58.130.210,port=8333,localport=49265]
+ping
+Client Socket[addr=/209.58.130.210,port=8333,localport=49265]
+addr
+Client Socket[addr=/46.4.93.54,port=8333,localport=49254]
+inv
+Client Socket[addr=/207.226.141.129,port=8333,localport=49261]
+version
+Client Socket[addr=/93.190.137.186,port=8333,localport=49259]
+inv
+Client Socket[addr=/207.226.141.129,port=8333,localport=49261]
+verack
+Client Socket[addr=/207.226.141.129,port=8333,localport=49261]
+ping
+Client Socket[addr=/207.226.141.129,port=8333,localport=49261]
+getheaders
+Client Socket[addr=/93.190.137.186,port=8333,localport=49259]
+addr
+Client Socket[addr=/207.226.141.129,port=8333,localport=49261]
+pong
+Client Socket[addr=/46.4.93.54,port=8333,localport=49254]
+inv
+Client Socket[addr=/207.226.141.129,port=8333,localport=49261]
+inv
+Client Socket[addr=/207.226.141.129,port=8333,localport=49261]
+addr
+Client Socket[addr=/46.4.93.54,port=8333,localport=49254]
+inv
+Client Socket[addr=/96.234.214.85,port=8333,localport=49271]
+version
+Client Socket[addr=/96.234.214.85,port=8333,localport=49271]
+verack
+Client Socket[addr=/96.234.214.85,port=8333,localport=49271]
+ping
+Client Socket[addr=/96.234.214.85,port=8333,localport=49271]
+addr
+Client Socket[addr=/46.4.93.54,port=8333,localport=49254]
+inv
+Client Socket[addr=/46.4.93.54,port=8333,localport=49254]
+addr
+Client Socket[addr=/91.205.173.159,port=8333,localport=49279]
+version
+Client Socket[addr=/91.205.173.159,port=8333,localport=49279]
+verack
+Client Socket[addr=/91.205.173.159,port=8333,localport=49279]
+ping
+Client Socket[addr=/91.205.173.159,port=8333,localport=49279]
+getheaders
+Client Socket[addr=/91.205.173.159,port=8333,localport=49279]
+pong
+Client Socket[addr=/91.205.173.159,port=8333,localport=49279]
+inv
+Client Socket[addr=/91.205.173.159,port=8333,localport=49279]
+addr
+Client Socket[addr=/151.80.40.188,port=8333,localport=49280]
+version
+Client Socket[addr=/91.134.120.210,port=11050,localport=49283]
+version
+Client Socket[addr=/151.80.40.188,port=8333,localport=49280]
+verack
+Client Socket[addr=/151.80.40.188,port=8333,localport=49280]
+ping
+Client Socket[addr=/91.134.120.210,port=11050,localport=49283]
+verack
+Client Socket[addr=/151.80.40.188,port=8333,localport=49280]
+getheaders
+Client Socket[addr=/151.80.40.188,port=8333,localport=49280]
+pong
+Client Socket[addr=/91.134.120.210,port=11050,localport=49283]
+pong
+Client Socket[addr=/94.43.126.100,port=8333,localport=49286]
+version
+Client Socket[addr=/94.43.126.100,port=8333,localport=49286]
+verack
+Client Socket[addr=/94.43.126.100,port=8333,localport=49286]
+ping
+Client Socket[addr=/94.43.126.100,port=8333,localport=49286]
+addr
+Client Socket[addr=/212.72.159.146,port=8333,localport=49289]
+version
+Client Socket[addr=/212.72.159.146,port=8333,localport=49289]
+verack
+Client Socket[addr=/212.72.159.146,port=8333,localport=49289]
+ping
+Client Socket[addr=/212.72.159.146,port=8333,localport=49289]
+addr
+Client Socket[addr=/47.201.51.236,port=8333,localport=49288]
+version
+Client Socket[addr=/47.201.51.236,port=8333,localport=49288]
+verack
+Client Socket[addr=/149.202.216.15,port=8333,localport=49290]
+version
+Client Socket[addr=/47.201.51.236,port=8333,localport=49288]
+ping
+Client Socket[addr=/47.201.51.236,port=8333,localport=49288]
+pong
+Client Socket[addr=/149.202.216.15,port=8333,localport=49290]
+verack
+Client Socket[addr=/149.202.216.15,port=8333,localport=49290]
+ping
+Client Socket[addr=/149.202.216.15,port=8333,localport=49290]
+getheaders
+Client Socket[addr=/149.202.216.15,port=8333,localport=49290]
+inv
+Client Socket[addr=/149.202.216.15,port=8333,localport=49290]
+pong
+Client Socket[addr=/149.202.216.15,port=8333,localport=49290]
+inv
+Client Socket[addr=/149.202.216.15,port=8333,localport=49290]
+inv
+Client Socket[addr=/80.218.130.117,port=8333,localport=49293]
+version
+Client Socket[addr=/91.115.66.87,port=8333,localport=49291]
+version
+Client Socket[addr=/80.218.130.117,port=8333,localport=49293]
+verack
+Client Socket[addr=/91.115.66.87,port=8333,localport=49291]
+verack
+Client Socket[addr=/91.115.66.87,port=8333,localport=49291]
+ping
+Client Socket[addr=/80.218.130.117,port=8333,localport=49293]
+ping
+Client Socket[addr=/80.218.130.117,port=8333,localport=49293]
+getheaders
+Client Socket[addr=/80.218.130.117,port=8333,localport=49293]
+pong
+Client Socket[addr=/91.115.66.87,port=8333,localport=49291]
+pong
+Client Socket[addr=/91.134.120.210,port=11050,localport=49283]
+addr
+Client Socket[addr=/151.80.40.188,port=8333,localport=49280]
+inv
+Client Socket[addr=/149.202.216.15,port=8333,localport=49290]
+inv
+Client Socket[addr=/91.115.66.87,port=8333,localport=49291]
+inv
+Client Socket[addr=/149.202.216.15,port=8333,localport=49290]
+inv
+Client Socket[addr=/91.115.66.87,port=8333,localport=49291]
+inv
+Client Socket[addr=/151.80.40.188,port=8333,localport=49280]
+inv
+Client Socket[addr=/47.201.51.236,port=8333,localport=49288]
+inv
+Client Socket[addr=/91.115.66.87,port=8333,localport=49291]
+inv
+Client Socket[addr=/149.202.216.15,port=8333,localport=49290]
+addr
+Client Socket[addr=/91.115.66.87,port=8333,localport=49291]
+inv
+Client Socket[addr=/52.26.127.162,port=8333,localport=49295]
+version
+Client Socket[addr=/91.115.66.87,port=8333,localport=49291]
+inv
+Client Socket[addr=/47.201.51.236,port=8333,localport=49288]
+inv
+Client Socket[addr=/52.26.127.162,port=8333,localport=49295]
+verack
+Client Socket[addr=/52.26.127.162,port=8333,localport=49295]
+ping
+Client Socket[addr=/52.26.127.162,port=8333,localport=49295]
+getheaders
+Client Socket[addr=/52.26.127.162,port=8333,localport=49295]
+pong
+Client Socket[addr=/151.80.40.188,port=8333,localport=49280]
+inv
+Client Socket[addr=/52.26.127.162,port=8333,localport=49295]
+addr
+Client Socket[addr=/80.218.130.117,port=8333,localport=49293]
+inv
+Client Socket[addr=/151.80.40.188,port=8333,localport=49280]
+addr
+Client Socket[addr=/80.218.130.117,port=8333,localport=49293]
+inv
+Client Socket[addr=/91.115.66.87,port=8333,localport=49291]
+addr
+Client Socket[addr=/47.201.51.236,port=8333,localport=49288]
+addr
+Client Socket[addr=/94.71.111.133,port=8333,localport=49298]
+version

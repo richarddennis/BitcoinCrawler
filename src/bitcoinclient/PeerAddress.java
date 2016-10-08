@@ -29,7 +29,7 @@ public class PeerAddress {
             String filename = "AllPeers.txt";
             try (FileWriter fw = new FileWriter(filename, true) //the true will append the new data
                     ) {
-                fw.write("PeerAddress [ip=" + ip + ", port=" + port + ", time=" + time + "\n");//appends the string to the file
+                fw.write("PeerAddress [ip=" + ip + ", port=" + port + ", time=" + time + "\n");
             } //appends the string to the file
         } catch (IOException ioe) {
             System.err.println("IOException: " + ioe.getMessage());
@@ -41,13 +41,11 @@ public class PeerAddress {
 
     @Override
     public int hashCode() {
-        // TODO Auto-generated method stub
         return ip.hashCode();
     }
 
     @Override
     public boolean equals(Object obj) {
-        // TODO Auto-generated method stub
         if (obj instanceof PeerAddress) {
             PeerAddress other = (PeerAddress) obj;
             return ip.equals(other.ip) && port == other.port;
