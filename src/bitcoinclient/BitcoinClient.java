@@ -143,7 +143,7 @@ public class BitcoinClient {
             System.out.println("CHECKSUM FAILED");
             throw new IOException("Checksum failed");
         }
-
+//        System.out.println("payload " + payload);
         return new BitcoinPacket(cmd, payload);
     }
 
@@ -159,9 +159,9 @@ public class BitcoinClient {
     public HashSet<PeerAddress> enumerate(long timeout) {
         long startConnection = System.currentTimeMillis();
 
-//        System.out.println("Connecting to a peer");
         try {
             // send version packet
+//            System.out.println("Client " +client);
             VersionPacket vpkt = new VersionPacket(client);
             out.write(vpkt.pack());
 
@@ -177,6 +177,7 @@ public class BitcoinClient {
                 try (FileWriter fw = new FileWriter("pktCommandsRecieved.txt", true);
                         BufferedWriter bw = new BufferedWriter(fw);
                         PrintWriter out = new PrintWriter(bw)) {
+                    out.println("Client " + client);
                     out.println(inPkt.command);
                 } catch (IOException e) {
                 }
@@ -205,6 +206,7 @@ public class BitcoinClient {
                         try (FileWriter fw = new FileWriter("pingTime.txt", true);
                                 BufferedWriter bw = new BufferedWriter(fw);
                                 PrintWriter out = new PrintWriter(bw)) {
+                            out.println("Client " + client + " "  + new Timestamp(date.getTime()));
                             out.println("PING TIME (ms): " + pingTime);
                         } catch (IOException e) {
                         }
@@ -221,7 +223,8 @@ public class BitcoinClient {
                         try (FileWriter fw = new FileWriter("connection.txt", true);
                                 BufferedWriter bw = new BufferedWriter(fw);
                                 PrintWriter out = new PrintWriter(bw)) {
-                            out.println("addr packet recieved");
+                            out.println("addr packet recieved " + (new Timestamp(date.getTime())));
+                            out.println("Client " + client);
 
                         } catch (IOException e) {
                         }
@@ -232,7 +235,7 @@ public class BitcoinClient {
                         try (FileWriter fw = new FileWriter("addr.txt", true);
                                 BufferedWriter bw = new BufferedWriter(fw);
                                 PrintWriter out = new PrintWriter(bw)) {
-                            out.println("addr packet recieved");
+                            out.println("addr packet recieved " + (new Timestamp(date.getTime())));
 
                             for (int i = 0; i < entries; i++) {
                                 PeerAddress pa = BitcoinPacket.from_netaddr(pl);
