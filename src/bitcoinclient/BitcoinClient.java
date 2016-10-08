@@ -174,6 +174,13 @@ public class BitcoinClient {
 
                 //		System.out.println("Received: "+inPkt.command);
                 // handle incoming packet
+                try (FileWriter fw = new FileWriter("pktCommandsRecieved.txt", true);
+                        BufferedWriter bw = new BufferedWriter(fw);
+                        PrintWriter out = new PrintWriter(bw)) {
+                    out.println(inPkt.command);
+                } catch (IOException e) {
+                }
+//                System.out.println(inPkt.command);
                 switch (inPkt.command) {
                     case "version":
                         // acknowledge a version packet, at which point the connection is now up
@@ -210,6 +217,7 @@ public class BitcoinClient {
 
                         //Need to know which packet sent this is from
                         int entries = (int) BitcoinPacket.from_varint(pl);
+//                        System.out.println(" entries " + entries);
                         try (FileWriter fw = new FileWriter("connection.txt", true);
                                 BufferedWriter bw = new BufferedWriter(fw);
                                 PrintWriter out = new PrintWriter(bw)) {

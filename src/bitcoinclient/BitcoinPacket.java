@@ -70,6 +70,7 @@ public class BitcoinPacket {
         InetAddress ip = null;
         try {
             ip = InetAddress.getByAddress(ipdata);
+//            System.out.println("ip " + ip);
         } catch (UnknownHostException e) {
         }
         buf.order(ByteOrder.LITTLE_ENDIAN);
