@@ -159,6 +159,12 @@ public class BitcoinClient {
     public HashSet<PeerAddress> enumerate(long timeout) {
         long startConnection = System.currentTimeMillis();
 
+        try (FileWriter fw = new FileWriter("ClientsConnectedTo.txt", true);
+                BufferedWriter bw = new BufferedWriter(fw);
+                PrintWriter out = new PrintWriter(bw)) {
+            out.println("Client " + client);
+        } catch (IOException e) {
+        }
         try {
             // send version packet
 //            System.out.println("Client " +client);
@@ -179,6 +185,7 @@ public class BitcoinClient {
                         PrintWriter out = new PrintWriter(bw)) {
                     out.println("Client " + client);
                     out.println(inPkt.command);
+                    out.println(" ");
                 } catch (IOException e) {
                 }
 //                System.out.println(inPkt.command);
